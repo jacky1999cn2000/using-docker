@@ -14,7 +14,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 
 
-```
+```sh
 #!/bin/bash
 if [ $# -eq 0 ]
 then
