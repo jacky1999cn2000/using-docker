@@ -15,4 +15,5 @@ WORKDIR /src
 
 EXPOSE 1337
 
+# package.json "start": "nodemon -L app.js", -L flag enable nodemon to poll all file 
 CMD npm start

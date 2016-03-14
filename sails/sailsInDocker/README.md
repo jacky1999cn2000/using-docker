@@ -34,13 +34,14 @@ CMD npm start
 [docker pull amouat/dnmonster](https://hub.docker.com/r/amouat/dnmonster/)
 docker run -d --name dnmonster amouat/dnmonster:latest
 docker build -t sailsindocker .
-docker run -d -p 1337:1337 --link dnmonster:dnmonster sailsindocker
+docker run -it -p 1337:1337 -v $(pwd):/src --link dnmonster:dnmonster --rm sailsindocker
 ```
 
-利用docker-compose:
+利用docker-compose: (docker-compose up -d)
 
 ```
 sailsindocker:
+      //build: .
       image: sailsindocker
       ports:
        - "1337:1337"
@@ -49,3 +50,10 @@ sailsindocker:
 dnmonster:
   image: amouat/dnmonster:latest
 ```
+
+stop and remove all containers
+```
+docker rm --force $(docker ps -aq)
+```
+
+developers不一定要在docker里开发,docker可以作为integration tool,保证app可用,然后作为deployment units

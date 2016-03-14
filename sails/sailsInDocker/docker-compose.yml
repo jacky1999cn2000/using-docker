@@ -2,6 +2,8 @@ sailsindocker:
       image: sailsindocker
       ports:
        - "1337:1337"
+      volumes:
+       - .:/src
       links:
        - dnmonster
 dnmonster:
