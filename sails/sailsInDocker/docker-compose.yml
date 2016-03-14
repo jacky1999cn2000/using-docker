@@ -1,0 +1,8 @@
+sailsindocker:
+      image: sailsindocker
+      ports:
+       - "1337:1337"
+      links:
+       - dnmonster
+dnmonster:
+  image: amouat/dnmonster:latest
