@@ -2,6 +2,7 @@
 
 这个dockerized app是用来利用amouat/dnmonster的服务(不同的字符串对应不同的图片)，用sails request这个服务，然后将获得的图片返回
 code中需要注意的是：
+
 1. 如何将request后得到的response里面的binary data弄出来
 2. 如果将binary data保存到redis里面去
 
@@ -96,7 +97,7 @@ CMD npm start
 ```
 
 利用docker engine(只建议利用docker engine来build image,运行的话还是用docker-compose):
-```
+```javascript
 [docker pull amouat/dnmonster](https://hub.docker.com/r/amouat/dnmonster/)
 docker pull redis
 docker run -d --name dnmonster amouat/dnmonster:latest
@@ -107,7 +108,7 @@ docker run -it -p 1337:1337 -v $(pwd):/src --link dnmonster:dnmonster --link red
 
 利用docker-compose: ()
 
-```
+```javascript
 sailsindocker:
       # build: . (# 不建议用container做开发)
       image: sailsindocker
@@ -124,24 +125,25 @@ redis_server:
   image: redis
 ```
 
-```
+```javascript
 docker-compose up -d
 ```
+
 看sails后台
-```
+```javascript
 docker ps (得到sailsindocker的container id)
 docker logs -f [container id]
 ```
 
 stop and remove all containers
-```
+```javascript
 docker rm --force $(docker ps -aq)
 ```
 
 p.s.developers不一定要在docker里开发,docker可以作为integration tool,保证app可用,然后作为deployment units
 
 tag image and push to DockerHub:
-```
+```javascript
 docker tag sailsindocker:latest jacky1999cn2000/sailsindocker:0.1
 docker login
 docker push jacky1999cn2000/sailsindocker:0.1
