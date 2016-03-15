@@ -106,7 +106,7 @@ docker build -t sailsindocker .
 docker run -it -p 1337:1337 -v $(pwd):/src --link dnmonster:dnmonster --link redis:redis_server --rm sailsindocker
 ```
 
-利用docker-compose: ()
+利用docker-compose: 
 
 ```javascript
 sailsindocker:
