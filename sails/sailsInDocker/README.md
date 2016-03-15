@@ -138,4 +138,11 @@ stop and remove all containers
 docker rm --force $(docker ps -aq)
 ```
 
-developers不一定要在docker里开发,docker可以作为integration tool,保证app可用,然后作为deployment units
+p.s.developers不一定要在docker里开发,docker可以作为integration tool,保证app可用,然后作为deployment units
+
+tag image and push to DockerHub:
+```
+docker tag sailsindocker:latest jacky1999cn2000/sailsindocker:0.1
+docker login
+docker push jacky1999cn2000/sailsindocker:0.1
+```
