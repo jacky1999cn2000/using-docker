@@ -1,7 +1,4 @@
 #Using Docker
 
-https://github.com/using-docker/
-
-docker-machine ip default: get your host machine's ip address (if using docker tool-belt, the localhost is not your Mac, but the VM host)
-
-docker rm --force $(docker ps -aq): stop and remove all containers
+[cowsay & redis两个小项目是参考该书中做的 很简单](https://github.com/using-docker/)
+[另一个稍微复杂的项目 sailsInDocker 参见这里](https://github.com/jacky1999cn2000/sailsInDocker)
